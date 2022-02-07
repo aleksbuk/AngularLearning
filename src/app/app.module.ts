@@ -8,6 +8,7 @@ import { CategoryComponent } from './category/category.component';
 import { ReviewComponent } from './components/review/review.component';
 import { BindintComponent } from './components/bindint/bindint.component';
 import { FormsModule } from "@angular/forms";
+import { FooComponent } from './components/foo/foo.component';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { FormsModule } from "@angular/forms";
     CategoryComponent,
     ReviewComponent,
     BindintComponent,
+    FooComponent,
   ],
   imports: [
     BrowserModule,

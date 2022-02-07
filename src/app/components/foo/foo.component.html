@@ -1,0 +1,25 @@
+ <div *ngIf="expression, else: elseCase"> This is first message!</div>
+
+ <ng-template #elseCase>
+   <div> This is the second message!</div>
+ </ng-template>
+ <button (click)="expression = !expression">Swithc</button>
+
+ <hr>
+
+ <button (click)="userGenerate()">Generate Name</button>
+
+ <ul *ngIf="deepObj?.user as user">
+   <li>Name is {{user.name}}</li>
+   <li>Surname is {{user.surname}}</li>
+ </ul>
+
+ <hr>
+
+ <ul>
+   <li *ngFor="let user of users; index as i; trackBy: trackBy" [ngSwitch]="user.template">
+     <p *ngSwitchCase="'bold'"> <b>{{user.name}}</b></p>
+     <p *ngSwitchCase="'italic'"> <i>{{user.name}}</i></p>
+     <p *ngSwitchDefault> <span>{{user.name}}</span></p>
+    </li>
+ </ul>
