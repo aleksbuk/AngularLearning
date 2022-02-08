@@ -1,0 +1,17 @@
+<p [style]="'color: red'">Style modification</p>
+<p [style.background-color]="' red'" [style.width]="'200px'">Style modification</p>
+<p [style.background-color]="' red'" [style.width.px]="'250'">Style modification</p>
+<p [class.red]="true">Class red</p>
+
+Style modification
+
+<p>Attributes</p>
+<p title="title">Attributes</p>
+
+<p [draggable]="true" >Attributes</p>
+<p [attr.data-foo]="123">New text</p>
+<p [attr.draggable]="true">New text</p>
+<p [attr.class]="'foo'">New text</p>
+<p [attr.title]="'foo'">New text</p>
+
+<button (click)="showHidden()">Show hidden</button>

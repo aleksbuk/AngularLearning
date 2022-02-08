@@ -9,6 +9,7 @@ import { ReviewComponent } from './components/review/review.component';
 import { BindintComponent } from './components/bindint/bindint.component';
 import { FormsModule } from "@angular/forms";
 import { FooComponent } from './components/foo/foo.component';
+import { AtributsComponent } from './components/atributs/atributs.component';
 
 @NgModule({
   declarations: [
@@ -19,6 +20,7 @@ import { FooComponent } from './components/foo/foo.component';
     ReviewComponent,
     BindintComponent,
     FooComponent,
+    AtributsComponent,
   ],
   imports: [
     BrowserModule,
