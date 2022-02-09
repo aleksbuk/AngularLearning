@@ -1,1 +1,12 @@
-<app-atributs></app-atributs>
+<app-ng-tamplate [template]="ref">
+
+  <h3 class="header">Header</h3>
+  <p class="body">Body</p>
+  <footer class="footer">Footer</footer>
+
+</app-ng-tamplate>
+
+
+<ng-template #ref let-element>
+  <p>{{element}} I am from App Commponent</p>
+</ng-template>

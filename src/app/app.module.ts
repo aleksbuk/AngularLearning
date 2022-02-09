@@ -10,6 +10,7 @@ import { BindintComponent } from './components/bindint/bindint.component';
 import { FormsModule } from "@angular/forms";
 import { FooComponent } from './components/foo/foo.component';
 import { AtributsComponent } from './components/atributs/atributs.component';
+import { NgTamplateComponent } from './components/ng-tamplate/ng-tamplate.component';
 
 @NgModule({
   declarations: [
@@ -21,6 +22,7 @@ import { AtributsComponent } from './components/atributs/atributs.component';
     BindintComponent,
     FooComponent,
     AtributsComponent,
+    NgTamplateComponent,
   ],
   imports: [
     BrowserModule,
