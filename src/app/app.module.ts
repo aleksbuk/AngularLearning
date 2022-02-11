@@ -11,6 +11,7 @@ import { FormsModule } from "@angular/forms";
 import { FooComponent } from './components/foo/foo.component';
 import { AtributsComponent } from './components/atributs/atributs.component';
 import { NgTamplateComponent } from './components/ng-tamplate/ng-tamplate.component';
+import { MenuComponent } from './components/menu/menu.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { NgTamplateComponent } from './components/ng-tamplate/ng-tamplate.compon
     FooComponent,
     AtributsComponent,
     NgTamplateComponent,
+    MenuComponent,
   ],
   imports: [
     BrowserModule,

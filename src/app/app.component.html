@@ -1,12 +1,24 @@
-<app-ng-tamplate [template]="ref">
-
-  <h3 class="header">Header</h3>
-  <p class="body">Body</p>
-  <footer class="footer">Footer</footer>
-
-</app-ng-tamplate>
-
-
-<ng-template #ref let-element>
-  <p>{{element}} I am from App Commponent</p>
-</ng-template>
+<div>
+  <button (click)="menu.show()">
+    Open menu
+  </button>
+  <app-menu #menu>
+    <p>From App Component</p>
+  </app-menu>
+</div>
+<div>
+  <button (click)="menu1.show()">
+    Open menu
+  </button>
+  <app-menu #menu1>
+    <p>From App second</p>
+  </app-menu>
+</div>
+<div>
+  <button (click)="menu2.show()">
+    Open menu
+  </button>
+  <app-menu #menu2>
+    <p>From App three</p>
+  </app-menu>
+</div>
