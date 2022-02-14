@@ -1,5 +1,15 @@
 <button (click)="show = !show">Check</button>
 <button (click)="title = title + 1">modifi Input</button>
-
 <button (click)="modifyArray()">ModifyArray</button>
-<app-perent *ngIf="show" [array]="array" [title]="title"></app-perent>
+
+<app-perent *ngIf="show" [array]="array" [title]="title">
+  <!--  <app-child #ref [title]="title"></app-child>-->
+  <!--  <app-child #ref [title]="title"></app-child>-->
+  <!--  <app-child #ref [title]="title"></app-child>-->
+  <!--  <p #ref></p>-->
+  <p #foo>Skip</p>
+  <ng-template #bar let-item><p>1. {{item}}</p></ng-template>
+  <ng-template #bar let-item><b>2. {{item}}</b></ng-template>
+  <ng-template #baz let-item><i>3. {{item}}</i></ng-template>
+
+</app-perent>

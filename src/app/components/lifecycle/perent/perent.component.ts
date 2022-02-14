@@ -6,14 +6,19 @@ import {
   ChangeDetectionStrategy,
   ChangeDetectorRef,
   Component,
+  ContentChild,
+  ContentChildren,
   DoCheck,
   Input,
   OnChanges,
   OnDestroy,
   OnInit,
-  SimpleChanges
+  QueryList,
+  SimpleChanges,
+  TemplateRef
 } from '@angular/core';
 import { Subject, Subscription } from "rxjs";
+import { ChildComponent } from "../child/child.component";
 
 @Component({
   selector: 'app-perent',
@@ -21,17 +26,24 @@ import { Subject, Subscription } from "rxjs";
   styleUrls: ['./perent.component.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class PerentComponent implements
-  OnChanges,
+export class PerentComponent implements OnChanges,
   OnInit,
   DoCheck,
   AfterContentInit,
   AfterContentChecked,
   AfterViewInit,
   AfterViewChecked,
-  OnDestroy
+  OnDestroy {
 
-{
+  @ContentChild('ref', {static: true})
+  appChild?: ChildComponent;
+
+  @ContentChildren('ref')
+  childrenContent!: QueryList<ChildComponent>
+
+  @ContentChildren('foo, bar, baz', {read: TemplateRef})
+  templates!: QueryList<TemplateRef<{ $implicit: string }>>
+
   @Input()
   title = 'Before init'
 
@@ -43,10 +55,10 @@ export class PerentComponent implements
   private length = this.array.length
 
   constructor(private cdr: ChangeDetectorRef) {
-    console.log('ParentComponent.constructor', this.title)
+    console.log('ParentComponent.constructor', this.title, this.appChild)
   }
   ngOnChanges(changes: SimpleChanges): void {
-    console.log('ParentComponent.ngOnChanges', changes, this.title);
+    console.log('ParentComponent.ngOnChanges', changes, this.title, this.appChild);
   }
 
   ngOnInit(): void {
@@ -57,7 +69,7 @@ export class PerentComponent implements
   }
 
   ngDoCheck(): void {
-    console.log('ParentComponent.ngDoChe0.0ck', this.title)
+    console.log('ParentComponent.ngDoChe0.0ck', this.title, this.appChild)
     if (this.length !== this.array.length){
       console.log('has changes');
       this.cdr.markForCheck();
@@ -65,27 +77,33 @@ export class PerentComponent implements
     }
   }
   ngAfterViewInit(): void {
-    // console.log('ParentComponent.ngAfterViewInit', this.title)
+    console.log('ParentComponent.ngAfterViewInit', this.title, this.appChild)
   }
 
   ngAfterViewChecked(): void {
-    // console.log('ParentComponent.ngAfterViewChecked', this.title);
+    console.log('ParentComponent.ngAfterViewChecked', this.title, this.appChild);
   }
 
   ngAfterContentInit(): void {
-    // console.log('ParentComponent.ngAfterContentInit', this.title);
+
+    this.appChild?.sayHi()
+    if (this.appChild) {
+      this.appChild.title = 'Lockal changes'
+    }
+    console.log('tamplate', this.templates)
+    console.log('ParentComponent.ngAfterContentInit', this.title, this.appChild, this.childrenContent);
   }
 
   ngAfterContentChecked(): void {
-    // console.log('ParentComponent.ngAfterContentInit', this.title);
+    console.log('ParentComponent.ngAfterContentInit', this.title, this.appChild);
   }
 
   ngOnDestroy(): void {
-    // console.log('ParentComponent.ngOnDestroy', this.title);
-    // // this.subscription?.unsubscribe()
+    console.log('ParentComponent.ngOnDestroy', this.title, this.appChild);
+    // // this.subscription?.unsubscribe(), this.appChild
     // this.subscriptions.forEach(s => s.unsubscribe())
     // this.destroy$.next(true);
     // this.destroy$.complete();
-    }
+  }
 
 }

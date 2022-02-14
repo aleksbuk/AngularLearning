@@ -1,7 +1,7 @@
 <p>perent works! {{title}}</p>
 
-<app-child [title]="title"></app-child>
+<ng-content select="app-child"></ng-content>
 
-<div>
-  <span *ngFor="let i of array">| {{i}} |</span>
-</div>
+<ng-container *ngFor="let template of templates">
+  <ng-container *ngTemplateOutlet="template; context: {$implicit: 'Temolate Value'}"></ng-container>
+</ng-container>

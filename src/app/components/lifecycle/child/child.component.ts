@@ -64,5 +64,9 @@ export class ChildComponent implements OnChanges,
     // console.log('Child.ngOnDestroy');
   }
 
+  sayHi() {
+    console.log('Hi from child component')
+  }
+
 }
 
