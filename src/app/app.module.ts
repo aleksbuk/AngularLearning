@@ -12,6 +12,8 @@ import { FooComponent } from './components/foo/foo.component';
 import { AtributsComponent } from './components/atributs/atributs.component';
 import { NgTamplateComponent } from './components/ng-tamplate/ng-tamplate.component';
 import { MenuComponent } from './components/menu/menu.component';
+import { PerentComponent } from './components/lifecycle/perent/perent.component';
+import { ChildComponent } from './components/lifecycle/child/child.component';
 
 @NgModule({
   declarations: [
@@ -25,6 +27,8 @@ import { MenuComponent } from './components/menu/menu.component';
     AtributsComponent,
     NgTamplateComponent,
     MenuComponent,
+    PerentComponent,
+    ChildComponent,
   ],
   imports: [
     BrowserModule,
